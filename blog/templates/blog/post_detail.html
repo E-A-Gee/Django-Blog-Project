@@ -9,6 +9,11 @@
         </div>
         <h2 class="article-title">{{ object.title }}</h2>
         <p class="article-content">{{ object.content }}</p>
+        <div class="border-top pt-1">
+            <a class="btn btn-secondary btn-sm m-1 mb-1" href="{% url 'post-update' object.id %}">Update</a>
+            <a class="btn btn-danger btn-sm m-1 mb-1" href="{% url 'post-delete' object.id %}">Delete</a>
+        </div>
         </div>
     </article>
+    
 {% endblock content %}
