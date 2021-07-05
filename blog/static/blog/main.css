@@ -1,4 +1,6 @@
-body {
+
+body
+ {
     background: #fafafa;
     color: #333333;
     margin-top: 5rem;
@@ -78,4 +80,15 @@ body {
   
   .account-heading {
     font-size: 2.5rem;
+  }
+
+  a .create-button {
+    border: 1px solid #757575;
+    background-color: #FFF;
+    color: #EB796F;
+    padding: 10px;
+    font-size: 14px;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
   }
