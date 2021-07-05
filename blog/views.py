@@ -78,5 +78,19 @@ def search_posts(request):
 
     else:
 
-        return render(request, 'blog/search_posts.html', {})
+        return render(request, 'blog/search_posts.html', {}) 
+
+
+class PostDetailView(DetailView):
+    model=Post
+
+
+class BatmanView(ListView):
+    model=Post
+    template_name = 'blog/batman_posts.html'
+    context_object_name = 'posts'
+    paginate_by = 5
+    
+    def get_queryset(self):
+        return Post.objects.filter(Q(title__icontains="batman") | Q(content__icontains="batman"))
     
