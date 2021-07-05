@@ -8,6 +8,10 @@ from .views import (
     PostDeleteView,
     UserPostListView,
     BatmanView,
+    SupermanView,
+    SpidermanView,
+    FlashView,
+
 )
 urlpatterns = [
     path('', PostListView.as_view(), name='blog-home'),
@@ -20,6 +24,9 @@ urlpatterns = [
     path('search_posts/', views.search_posts, name='search-posts'),
     path('user/<str:username>/', UserPostListView.as_view(), name='user-posts'),
     path('batman/', BatmanView.as_view(), name='batman-posts'),
+    path('superman/', SupermanView.as_view(), name='superman-posts'),
+    path('spiderman/', SpidermanView.as_view(), name='spiderman-posts'),
+    path('flash/', FlashView.as_view(), name='flash-posts'),
 
     path('about/', views.about, name='blog-about'),
 ]
