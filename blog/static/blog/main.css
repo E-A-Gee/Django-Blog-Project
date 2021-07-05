@@ -12,12 +12,9 @@ body {
     margin: 0;
   }
   
-  .bg-steel {
-    background-color: #5f788a;
-  }
   
   .site-header .navbar-nav .nav-link {
-    color: #cbd5db;
+    color: #000000;
   }
   
   .site-header .navbar-nav .nav-link:hover {
@@ -42,7 +39,7 @@ body {
   
   a.article-title:hover {
     color: #428bca;
-    text-decoration: none;
+    text-decoration: underline;
   }
   
   .article-content {
