@@ -81,10 +81,6 @@ def search_posts(request):
         return render(request, 'blog/search_posts.html', {}) 
 
 
-class PostDetailView(DetailView):
-    model=Post
-
-
 class BatmanView(ListView):
     model=Post
     template_name = 'blog/batman_posts.html'
@@ -93,4 +89,31 @@ class BatmanView(ListView):
     
     def get_queryset(self):
         return Post.objects.filter(Q(title__icontains="batman") | Q(content__icontains="batman"))
+
+class SpidermanView(ListView):
+    model=Post
+    template_name = 'blog/spiderman_posts.html'
+    context_object_name = 'posts'
+    paginate_by = 5
+    
+    def get_queryset(self):
+        return Post.objects.filter(Q(title__icontains="spiderman") | Q(content__icontains="spiderman"))
+
+class SupermanView(ListView):
+    model=Post
+    template_name = 'blog/superman_posts.html'
+    context_object_name = 'posts'
+    paginate_by = 5
+    
+    def get_queryset(self):
+        return Post.objects.filter(Q(title__icontains="superman") | Q(content__icontains="superman"))
+
+class FlashView(ListView):
+    model=Post
+    template_name = 'blog/flash_posts.html'
+    context_object_name = 'posts'
+    paginate_by = 5
+    
+    def get_queryset(self):
+        return Post.objects.filter(Q(title__icontains="flash") | Q(content__icontains="flash"))
     
