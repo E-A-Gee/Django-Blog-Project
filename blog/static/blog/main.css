@@ -39,6 +39,7 @@ body {
   
   a.article-title:hover {
     text-decoration: underline;
+    color: #444444;
   }
   
   .article-content {
