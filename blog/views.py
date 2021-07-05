@@ -9,6 +9,7 @@ from django.views.generic import(
     DeleteView,
 )
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
+from django.db.models import Q
 # Create your views here.
 
 class PostListView(ListView):
@@ -67,3 +68,15 @@ class PostDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
 
 def about(request):
     return render(request, 'blog/about.html', {'title':'About'})
+
+
+def search_posts(request):
+    if request.method == "POST":
+        searched = request.POST.get('searched')
+        searched_posts = Post.objects.filter(Q(title__icontains=searched) | Q(content__icontains=searched))
+        return render(request, 'blog/search_posts.html', {'searched':searched, 'searched_posts':searched_posts})
+
+    else:
+
+        return render(request, 'blog/search_posts.html', {})
+    
