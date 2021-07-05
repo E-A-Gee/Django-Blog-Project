@@ -1,7 +1,9 @@
 {% extends "blog/base.html" %}
 {% block content %}
-
-    {% for post in posts %}
+    {% if searched %}
+        <h1 style="margin-bottom:50px;">You Searched For <i>"{{searched}}"</i></h1>
+        {% if searched_posts %}
+        {% for post in searched_posts %}
         <article class="media content-section">
             <img class="rounded-circle article-img" src="{{post.author.profile.image.url}}">
             <div class="media-body">
@@ -14,6 +16,17 @@
             </div>
         </article>
     {% endfor %}
+        {% else %}
+        <pr>No results found.</pr>
+        {% endif %}
+
+    {% else %}
+        <h1>Hey! You forgot a searchterm...</h1>
+    {% endif %}
+
+
+
+
 
     {% if is_paginated %}
 
